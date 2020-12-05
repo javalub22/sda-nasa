@@ -1,8 +1,0 @@
-<mat-grid-list cols="3" rowHeight="2:1">
-  <mat-grid-tile *ngFor="let photo of photos">
-    <mat-grid-tile-header>
-      {{photo.camera.full_name}}
-    </mat-grid-tile-header>
-    <img src="{{photo.img_src}}" alt="{{photo.camera.full_name}}" />
-  </mat-grid-tile>
-</mat-grid-list>
