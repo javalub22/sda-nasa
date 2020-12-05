@@ -16,7 +16,15 @@ export class NasaClientService {
   }
 
   public getPhotos(date: Date): Observable<Response> {
+    this.writeInConsoleUrl();
+
     const dateString = this.dataPipe.transform(date, 'yyyy-MM-dd');
     return this.http.get<Response>(this.url + dateString + '&api_key=' + this.apiKey);
+  }
+
+  writeInConsoleUrl(): void {
+    this.http.get('/car').toPromise().then(
+      response => console.log(response)
+    );
   }
 }
