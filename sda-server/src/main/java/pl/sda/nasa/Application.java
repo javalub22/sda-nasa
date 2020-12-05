@@ -10,6 +10,9 @@ import org.springframework.context.ConfigurableApplicationContext;
 public class Application extends SpringBootServletInitializer {
     public static void main(String[] args) {
         final ConfigurableApplicationContext run = SpringApplication.run(Application.class, args);
+        final PropertiesUtil propertiesUtil = run.getBean(PropertiesUtil.class);
+
+        System.out.println("http://localhost:" + propertiesUtil.getServerPort());
     }
 
 }
