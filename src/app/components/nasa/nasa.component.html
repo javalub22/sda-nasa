@@ -1,2 +1,5 @@
 <p>nasa works!</p>
-<div>{{response | json}}</div>
+
+<div *ngFor="let photo of photos">
+  <img src="{{photo.img_src}}" alt="{{photo.camera.full_name}}" />
+</div>
