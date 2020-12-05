@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {NasaClientService} from '../../services/nasa-client.service';
+import {NasaClientService} from '../../services/nasa-client/nasa-client.service';
 import {Photo} from '../../models/nasa';
+import {PhotosService} from '../../services/photos/photos.service';
 
 @Component({
   selector: 'app-nasa',
@@ -11,12 +12,13 @@ export class NasaComponent implements OnInit {
 
   photos: Photo[] = [];
 
-  constructor(private nasaClientService: NasaClientService) {
+  constructor(private nasaClientService: NasaClientService,
+              private photosService: PhotosService) {
   }
 
   ngOnInit(): void {
     this.nasaClientService.getPhotos(new Date('2015-06-03T00:00:00')).toPromise().then(
-      response => this.photos = response.photos
+      response => this.photos = this.photosService.firstPhotoByCamera(response.photos)
     );
   }
 
