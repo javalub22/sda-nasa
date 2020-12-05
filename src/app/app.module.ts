@@ -5,6 +5,8 @@ import {AppComponent} from './app.component';
 import {NasaComponent} from './components/nasa/nasa.component';
 import {HttpClientModule} from '@angular/common/http';
 import {DatePipe} from '@angular/common';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatGridListModule} from '@angular/material/grid-list';
 
 @NgModule({
   declarations: [
@@ -13,7 +15,9 @@ import {DatePipe} from '@angular/common';
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatGridListModule
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent]

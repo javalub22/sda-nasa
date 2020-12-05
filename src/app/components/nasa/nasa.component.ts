@@ -17,8 +17,11 @@ export class NasaComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.nasaClientService.getPhotos(new Date('2015-06-03T00:00:00')).toPromise().then(
-      response => this.photos = this.photosService.firstPhotoByCamera(response.photos)
+    this.nasaClientService.getPhotos(new Date('2020-12-03T00:00:00')).toPromise().then(
+      response => {
+        this.photos = this.photosService.firstPhotoByCamera(response.photos);
+        console.log(response.photos);
+      }
     );
   }
 
