@@ -2,12 +2,17 @@ import { TestBed } from '@angular/core/testing';
 
 import { PhotosService } from './photos.service';
 import {Photo, Response} from '../../models/nasa';
+import {DatePipe} from '@angular/common';
+import {HttpClientTestingModule} from '@angular/common/http/testing';
 
 describe('PhotosService', () => {
   let service: PhotosService;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
+    TestBed.configureTestingModule({
+      imports: [HttpClientTestingModule],
+      providers: [DatePipe]
+    });
     service = TestBed.inject(PhotosService);
   });
 
