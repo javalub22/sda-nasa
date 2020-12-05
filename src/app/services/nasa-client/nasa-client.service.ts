@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Response} from '../../models/nasa';
 import {DatePipe} from '@angular/common';
+import {Observable} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +15,7 @@ export class NasaClientService {
               private dataPipe: DatePipe) {
   }
 
-  public getPhotos(date: Date): any {
+  public getPhotos(date: Date): Observable<Response> {
     const dateString = this.dataPipe.transform(date, 'yyyy-MM-dd');
     return this.http.get<Response>(this.url + dateString + '&api_key=' + this.apiKey);
   }
